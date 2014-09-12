@@ -20,6 +20,7 @@ from ecwsp.sis.helper_functions import Struct
 from ecwsp.sis.uno_report import replace_spreadsheet
 from .models import GradeComment, Grade
 from .forms import GradeUpload
+from constance import config
 
 import datetime
 import time
@@ -149,7 +150,7 @@ class StudentGradesheet(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentGradesheet, self).get_context_data(**kwargs)
-        context['letter_grade_required_for_pass'] = Configuration.get_or_default('letter_grade_required_for_pass', '60').value
+        context['letter_grade_required_for_pass'] = config.MIN_PASS_GRADE
         context['school_years'] = SchoolYear.objects.filter(markingperiod__coursesection__enrollments=self.object).distinct()
         context['default_school_year'] = context['school_years'].first()
         return context
@@ -186,7 +187,7 @@ class CourseSectionGrades(FormMixin, DetailView):
             context['edit'] = True
         else:
             context['edit'] = False
-        context['letter_grade_required_for_pass'] = Configuration.get_or_default('letter_grade_required_for_pass', '60').value
+        context['letter_grade_required_for_pass'] = config.MIN_PASS_GRADE
         return context
 
     def post(self, request, *args, **kwargs):

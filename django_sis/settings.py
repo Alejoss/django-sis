@@ -305,7 +305,7 @@ INSTALLED_APPS = (
     'rosetta',
     # These can be enabled if desired but the default is off
     #'ecwsp.integrations.schoolreach',
-    #'ecwsp.integrations.canvas_sync',
+    'ecwsp.integrations.canvas_sync',
 )
 
 COMPRESS_PRECOMPILERS = (
@@ -459,19 +459,20 @@ INSTALLED_APPS = SHARED_APPS + TENANT_APPS
 TENANT_MODEL = "customers.Client"
 
 CONSTANCE_CONFIG = {
-    'SCHOOL_NAME': ('Unnamed School', 'School name'),
-    'SCHOOL_COLOR': ('', 'hex color code. Ex: $1122FF'),
-    'GOOGLE_ANALYTICS': ('', 'Google Analytics code UA-XXXXXX'),
     'ALLOW_GOOGLE_AUTH': (False, 'Allow users to log in with Google Apps. This requires setting the email field in student and staff.'),
+    'GOOGLE_ANALYTICS': ('', 'Google Analytics code UA-XXXXXX'),
     'GOOGLE_APPS_DOMAIN': ('', 'Used with ALLOW_GOOGLE_AUTH. Google Apps domain to authenticate against. Probably the part after @ on your email address. Example: myschool.com'),
     'LDAP_URL': ('', 'Ex: ldap://admin.example.com:389'),
     'LDAP_NT4_DOMAIN': ('', 'Ex: ADMIN'),
     'LDAP_BIND_USER': ('', 'Ex: ldap_user'),
     'LDAP_BIND_PASSWORD': ('', 'Bind user\'s password'),
     'LDAP_SEARCH_DN': ('', 'DC=admin,DC=example,DC=com'),
-	'SET_ALL_TO_PRESENT': (False, 'If set to True, the default course attendance setting will be "present"')
-
+    'MIN_PASS_GRADE': ('60', 'Minimum grade required to be considered "passing"'),
+    'SCHOOL_NAME': ('Unnamed School', 'School name'),
+    'SCHOOL_COLOR': ('', 'hex color code. Ex: $1122FF'),
+    'SET_ALL_TO_PRESENT': (False, 'If set to True, the default course attendance setting will be "present"')
 }
+
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 import django

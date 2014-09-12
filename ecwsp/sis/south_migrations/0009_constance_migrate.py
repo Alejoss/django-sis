@@ -21,6 +21,7 @@ class Migration(DataMigration):
             ['School Name', 'SCHOOL_NAME'],
             ['School Color', 'SCHOOL_COLOR'],
             ['Google Analytics', 'GOOGLE_ANALYTICS'],
+            ['letter_grade_required_for_pass', 'MIN_PASS_GRADE'],
         ]
         for change in changes:
             conf = Configuration.objects.filter(name=change[0]).first()
