@@ -305,7 +305,7 @@ INSTALLED_APPS = (
     'rosetta',
     # These can be enabled if desired but the default is off
     #'ecwsp.integrations.schoolreach',
-    'ecwsp.integrations.canvas_sync',
+    #'ecwsp.integrations.canvas_sync',
 )
 
 COMPRESS_PRECOMPILERS = (
